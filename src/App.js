@@ -45,6 +45,13 @@ class App {
     const tmpNum = Random.pickNumberInRange(0, 9);
     return tmpNum >= 4;
   }
+
+  roundPrint(currentPos) {
+    for (const [name, pos] of currentPos) {
+      Console.print(`${name} : ${"-".repeat(pos)}`);
+    }
+    Console.print("\n");
+  }
 }
 
 export default App;

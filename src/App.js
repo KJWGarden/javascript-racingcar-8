@@ -13,6 +13,7 @@ class App {
 
     Console.print(nameSet);
   }
+
   parseName(input) {
     const names = input.split(",").map((name) => name.trim());
 
@@ -22,6 +23,11 @@ class App {
     }
 
     return carSet;
+  }
+
+  checkMove() {
+    const tmpNum = Random.pickNumberInRange(0, 9);
+    return tmpNum >= 4;
   }
 }
 

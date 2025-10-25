@@ -20,6 +20,10 @@ class App {
   }
 
   parseName(input) {
+    if (!input || input.trim() === "") {
+      throw new Error("[ERROR] 자동차 이름을 입력해야 합니다.");
+    }
+
     const names = input.split(",").map((name) => name.trim());
 
     const carSet = new Set();

@@ -10,7 +10,14 @@ class App {
   }
   parseName(input) {
     const names = input.split(",").map((name) => name.trim());
-    return names;
+
+    const carSet = new Set();
+
+    for (const name of names) {
+      carSet.add(name);
+    }
+
+    return carSet;
   }
 }
 

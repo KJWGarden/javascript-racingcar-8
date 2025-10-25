@@ -25,6 +25,14 @@ class App {
     return carSet;
   }
 
+  initCarPosition(nameSet) {
+    const currentPos = new Map();
+    for (const name of nameSet) {
+      currentPos.set(name, 0);
+    }
+    return currentPos;
+  }
+
   checkMove() {
     const tmpNum = Random.pickNumberInRange(0, 9);
     return tmpNum >= 4;

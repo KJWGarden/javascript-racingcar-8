@@ -11,7 +11,12 @@ class App {
     );
     const iterateNum = Number(iterateStr);
 
-    Console.print(nameSet);
+    const startPostion = this.initCarPosition(nameSet);
+
+    for (let i = 0; i < iterateNum; i++) {
+      this.moveCar(startPostion);
+      this.roundPrint(startPostion);
+    }
   }
 
   parseName(input) {

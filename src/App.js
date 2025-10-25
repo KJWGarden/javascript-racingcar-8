@@ -33,6 +33,14 @@ class App {
     return currentPos;
   }
 
+  moveCar(currentPos) {
+    for (const [name, pos] of currentPos) {
+      if (this.checkMove()) {
+        currentPos.set(name, pos + 1);
+      }
+    }
+  }
+
   checkMove() {
     const tmpNum = Random.pickNumberInRange(0, 9);
     return tmpNum >= 4;

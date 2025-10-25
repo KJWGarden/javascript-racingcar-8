@@ -10,13 +10,13 @@ class App {
       "시도할 횟수는 몇 회인가요?"
     );
     const iterateNum = Number(iterateStr);
-
     const startPostion = this.initCarPosition(nameSet);
 
     for (let i = 0; i < iterateNum; i++) {
       this.moveCar(startPostion);
       this.roundPrint(startPostion);
     }
+    this.checkWinner(startPostion);
   }
 
   parseName(input) {
@@ -56,6 +56,23 @@ class App {
       Console.print(`${name} : ${"-".repeat(pos)}`);
     }
     Console.print("\n");
+  }
+
+  checkWinner(currentPos) {
+    let initPos = 0;
+    for (const [name, pos] of currentPos) {
+      if (pos > initPos) {
+        initPos = pos;
+      }
+    }
+
+    const winners = [];
+    for (const [name, pos] of currentPos) {
+      if (pos === initPos) {
+        winners.push(name);
+      }
+    }
+    Console.print(`최종 우승자 : ${winners.join(",")}`);
   }
 }
 

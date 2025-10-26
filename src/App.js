@@ -24,6 +24,13 @@ class App {
       throw new Error("[ERROR] 자동차 이름을 입력해야 합니다.");
     }
 
+    if (!input.includes(",") && input.trim().includes(" ")) {
+      throw new Error("[ERROR] 자동차 이름은 쉼표(,)로만 구분해야 합니다.");
+    }
+    if (/[^a-zA-Z0-9,ㄱ-ㅎㅏ-ㅣ가=힣\s]/.test(input)) {
+      throw new Error("[ERROR] 자동차 이름은 쉼표(,)로만 구분해야 합니다.");
+    }
+
     const names = input.split(",").map((name) => name.trim());
 
     const carSet = new Set();

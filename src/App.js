@@ -9,7 +9,7 @@ class App {
     const iterateStr = await Console.readLineAsync(
       "시도할 횟수는 몇 회인가요?"
     );
-    const iterateNum = Number(iterateStr);
+    const iterateNum = this.parseIterate(iterateStr);
     const startPostion = this.initCarPosition(nameSet);
 
     for (let i = 0; i < iterateNum; i++) {
@@ -51,6 +51,28 @@ class App {
     }
 
     return carSet;
+  }
+
+  parseIterate(input) {
+    if (!input || input.trim() === "") {
+      throw new Error("[ERROR] 시도 횟수를 입력해야 합니다.");
+    }
+
+    const num = Number(input);
+
+    if (isNaN(num)) {
+      throw new Error("[ERROR] 시도 횟수는 숫자여야 합니다.");
+    }
+
+    if (!Number.isInteger(num)) {
+      throw new Error("[ERROR] 시도 횟수는 정수여야 합니다.");
+    }
+
+    if (num <= 0) {
+      throw new Error("[ERROR] 시도 횟수는 1이상의 정수여야 합니다.");
+    }
+
+    return num;
   }
 
   initCarPosition(nameSet) {
